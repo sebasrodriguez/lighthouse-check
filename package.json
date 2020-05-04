@@ -1,11 +1,11 @@
 {
-  "name": "@foo-software/lighthouse-check",
-  "version": "0.0.87",
-  "description": "An NPM module and CLI for automated Lighthouse audits.",
+  "name": "lighthouse-check",
+  "version": "0.0.2",
+  "description": "Forked version of foo-software/lighthouse-check with multiple runs added.",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/foo-software/lighthouse-check.git"
+    "url": "git+https://github.com/sebasrodriguez/lighthouse-check.git"
   },
   "keywords": [
     "lighthouse",
@@ -20,12 +20,12 @@
     "foo",
     "foo.software"
   ],
-  "author": "Adam Henson <adamhenson1979@gmail.com> (https://github.com/adamhenson)",
+  "author": "Sebastián Rodríguez <sebasrodriguez@gmail.com> (https://github.com/sebasrodriguez)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/foo-software/lighthouse-check/issues"
+    "url": "https://github.com/sebasrodriguez/lighthouse-check/issues"
   },
-  "homepage": "https://github.com/foo-software/lighthouse-check#readme",
+  "homepage": "https://github.com/sebasrodriguez/lighthouse-check#readme",
   "bin": {
     "lighthouse-check": "dist/bin/lighthouse-check.js",
     "lighthouse-check-status": "dist/bin/lighthouse-check-status.js"

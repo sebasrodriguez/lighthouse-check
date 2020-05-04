@@ -21,6 +21,7 @@ This project provides **two ways of running audits** - locally in your own envir
 - CLI - see [CLI Usage](#cli-usage).
 - Docker - see [Docker Usage](#docker-usage).
 - Support for implementations like [CircleCI](#implementing-with-circleci).
+- Ability to run multiple time the same lighthouse tests in order to get average results
 
 # Table of Contents
 
@@ -650,6 +651,14 @@ Below are options for the exported `lighthouseCheck` function or `lighthouse-che
     <td><code>boolean</code></td>
     <td><code>remote</code></td>
     <td><code>true</code></td>
+    <td>no</td>
+  </tr>
+  <tr>
+    <td><code>runs</code></td>
+    <td>The number of runs it will be executed against all the given urls</td>
+    <td><code>number</code></td>
+    <td><code>local</code></td>
+    <td><code>1</code></td>
     <td>no</td>
   </tr>
 </table>

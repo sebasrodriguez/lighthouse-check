@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install -y \
 
 ARG CACHEBUST=1
 
-RUN npm install @foo-software/lighthouse-check -g
+RUN npm install lighthouse-check -g
 
 # Add Chrome as a user
 RUN groupadd -r chrome && useradd -r -g chrome -G audio,video chrome \

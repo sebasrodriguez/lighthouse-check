@@ -6,6 +6,7 @@ import localLighthouse from './localLighthouse';
 import postPrComment from './postPrComment';
 import slackNotify from './slackNotify';
 import writeResults from './helpers/writeResults';
+import calculateScores from './helpers/calculateScores';
 import { NAME, SUCCESS_CODE_GENERIC } from './constants';
 import { ERROR_NO_RESULTS } from './errorCodes';
 import logResults from './logResults';
@@ -39,7 +40,8 @@ export default ({
   urls,
   verbose = true,
   wait = true,
-  slackWebhookUrl
+  slackWebhookUrl,
+  runs = 1
 }) =>
   new Promise(async (resolve, reject) => {
     try {
@@ -156,23 +158,29 @@ export default ({
           })
         );
       } else {
-        const lighthouseAudits = await localLighthouse({
-          awsAccessKeyId,
-          awsBucket,
-          awsRegion,
-          awsSecretAccessKey,
-          emulatedFormFactor,
-          extraHeaders,
-          locale,
-          outputDirectory: outputDirectoryPath,
-          overridesJsonFile:
-            overridesJsonFile && path.resolve(overridesJsonFile),
-          maxWaitForLoad,
-          throttling,
-          throttlingMethod,
-          urls,
-          verbose
-        });
+        const results = [];
+        for (let i = 0; i < runs; i++) {
+          const result = await localLighthouse({
+            awsAccessKeyId,
+            awsBucket,
+            awsRegion,
+            awsSecretAccessKey,
+            emulatedFormFactor,
+            extraHeaders,
+            locale,
+            outputDirectory: outputDirectoryPath,
+            overridesJsonFile:
+              overridesJsonFile && path.resolve(overridesJsonFile),
+            maxWaitForLoad,
+            throttling,
+            throttlingMethod,
+            urls,
+            verbose
+          });
+          results.push(result);
+        }
+
+        const lighthouseAudits = calculateScores(results);
 
         if (!lighthouseAudits.length) {
           reject(

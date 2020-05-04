@@ -2,7 +2,7 @@
 
 DOCKER_TAG_NAME="lighthouse-check"
 DOCKER_VERSION="production"
-DOCKER_USERNAME="foosoftware"
+DOCKER_USERNAME="sebasrodriguez"
 DOCKERFILE_NAME="Dockerfile"
 
 # set values from flags -v (version)

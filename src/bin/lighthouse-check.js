@@ -131,6 +131,10 @@ const defaultOptions = {
   wait: {
     type: 'boolean',
     value: undefined
+  },
+  runs: {
+    type: 'number',
+    value: 1
   }
 };
 
