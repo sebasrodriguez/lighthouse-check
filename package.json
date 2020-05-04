@@ -1,6 +1,6 @@
 {
   "name": "lighthouse-check",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Forked version of foo-software/lighthouse-check with multiple runs added.",
   "main": "dist/index.js",
   "repository": {

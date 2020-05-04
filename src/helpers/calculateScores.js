@@ -1,5 +1,5 @@
 export default scores => {
-  const flattenedScores = scores.flat();
+  const flattenedScores = [].concat.apply([], scores);
 
   return flattenedScores.reduce((results, score) => {
     const url = score.url;
